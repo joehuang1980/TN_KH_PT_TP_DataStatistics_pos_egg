@@ -80,12 +80,23 @@ class PCAClusteringAnalyzer(CityAnalyzer):
             'n_samples': len(df)
         }
 
-        # Step 1: Standardize features
-        print("\nStep 1: Standardizing features...")
-        X = df[features].values
+        # Step 1: Handle missing values and standardize features
+        print("\nStep 1: Preparing data and standardizing features...")
+
+        # Remove rows with any NaN values in features
+        df_clean = df[features + config.TARGETS].dropna()
+        print(f"  ✓ Removed {len(df) - len(df_clean):,} rows with missing values")
+
+        # Update results with clean sample size
+        results['n_samples'] = len(df_clean)
+
+        # Extract feature values
+        X = df_clean[features].values
+
+        # Standardize
         self.scaler = StandardScaler()
         X_scaled = self.scaler.fit_transform(X)
-        print(f"  ✓ Standardized {X_scaled.shape[1]} features")
+        print(f"  ✓ Standardized {X_scaled.shape[1]} features from {X_scaled.shape[0]:,} samples")
 
         # Step 2: Perform PCA
         print("\nStep 2: Performing PCA...")
@@ -103,10 +114,10 @@ class PCAClusteringAnalyzer(CityAnalyzer):
         clustering_results = self._optimize_clustering(X_pca)
         results.update(clustering_results)
 
-        # Assign clusters to data
+        # Assign clusters to clean data
         optimal_k = clustering_results['optimal_k']
         cluster_labels = clustering_results['optimal_labels']
-        df_clustered = df.copy()
+        df_clustered = df_clean.copy()
         df_clustered['cluster'] = cluster_labels
 
         results['df_clustered'] = df_clustered
