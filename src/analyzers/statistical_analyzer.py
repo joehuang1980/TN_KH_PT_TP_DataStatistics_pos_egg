@@ -143,7 +143,9 @@ class StatisticalAnalyzer(CityAnalyzer):
 
         # Store results
         self.results = results
-        self.metadata['bonferroni_alpha'] = corrected_alpha
+        # Only store corrected_alpha if it was computed (not None)
+        if corrected_alpha is not None:
+            self.metadata['bonferroni_alpha'] = corrected_alpha
 
         print(f"\n{'='*60}")
         print(f"✓ Statistical analysis complete")

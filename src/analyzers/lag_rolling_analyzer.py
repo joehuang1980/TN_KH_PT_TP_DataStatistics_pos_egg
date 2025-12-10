@@ -146,12 +146,24 @@ class LagRollingAnalyzer(CityAnalyzer):
 
             for week in config.LAG_RANGE:
                 # Find the feature for this week with exact suffix matching
+                # Handle multiple naming conventions:
+                # - Standard: variable_lag_{week}, variable_lag_rolling{week}
+                # - NDVI: NDVImean_lag{week} (no underscore), NDVImean_lag_rollingmean{week}
                 if lag_type == 'simple':
-                    suffix = f'_lag_{week}'
+                    # Try both _lag_{week} and _lag{week} (NDVI style)
+                    possible_suffixes = [f'_lag_{week}', f'_lag{week}']
                 else:  # rolling
-                    suffix = f'_rolling{week}'
+                    # Try both _lag_rolling{week} and NDVI-specific rolling patterns
+                    possible_suffixes = [
+                        f'_lag_rolling{week}',
+                        f'_rolling{week}',
+                        f'_lag_rollingmean{week}',
+                        f'_lag_rollingmedian{week}',
+                        f'_lag_rollingsum{week}'
+                    ]
 
-                matching_features = [f for f in lag_features if f.endswith(suffix)]
+                matching_features = [f for f in lag_features
+                                   if any(f.endswith(suffix) for suffix in possible_suffixes)]
 
                 if matching_features:
                     feature = matching_features[0]
