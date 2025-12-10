@@ -3,9 +3,6 @@
 
 ## Taipei
 
-
-### Statistical Analysis
-
 ## Statistical Correlation Analysis: Taipei
 
 ### Overview
@@ -75,7 +72,6 @@ Of 175 features analyzed, 117 showed statistically significant correlations with
 *See Figure: Top 30 feature correlations with EGG (heatmap)*
 
 
-### PCA and Clustering
 
 ## PCA and Clustering Analysis: Taipei
 
@@ -112,7 +108,6 @@ Significant differences in EGG were observed across clusters. Dunn's post-hoc te
 *See Figures: PCA scree plot, t-SNE cluster visualization, and cluster boxplots for POS/EGG*
 
 
-### Temporal Lag Analysis
 
 ## Temporal Lag Analysis: Taipei
 
@@ -175,10 +170,9 @@ Mean optimal lag (rolling): 2.0 weeks.
 *See Figures: Lag correlation heatmaps and line plots for EGG*
 
 
+
+
 ## Kaohsiung
-
-
-### Statistical Analysis
 
 ## Statistical Correlation Analysis: Kaohsiung
 
@@ -247,7 +241,6 @@ Of 175 features analyzed, 172 showed statistically significant correlations with
 *See Figure: Top 30 feature correlations with EGG (heatmap)*
 
 
-### PCA and Clustering
 
 ## PCA and Clustering Analysis: Kaohsiung
 
@@ -290,7 +283,6 @@ Significant differences in EGG were observed across clusters. Dunn's post-hoc te
 *See Figures: PCA scree plot, t-SNE cluster visualization, and cluster boxplots for POS/EGG*
 
 
-### Temporal Lag Analysis
 
 ## Temporal Lag Analysis: Kaohsiung
 
@@ -353,10 +345,9 @@ Mean optimal lag (rolling): 5.0 weeks.
 *See Figures: Lag correlation heatmaps and line plots for EGG*
 
 
+
+
 ## Pingtung
-
-
-### Statistical Analysis
 
 ## Statistical Correlation Analysis: Pingtung
 
@@ -427,7 +418,6 @@ Of 175 features analyzed, 152 showed statistically significant correlations with
 *See Figure: Top 30 feature correlations with EGG (heatmap)*
 
 
-### PCA and Clustering
 
 ## PCA and Clustering Analysis: Pingtung
 
@@ -467,7 +457,6 @@ Significant differences in EGG were observed across clusters. Dunn's post-hoc te
 *See Figures: PCA scree plot, t-SNE cluster visualization, and cluster boxplots for POS/EGG*
 
 
-### Temporal Lag Analysis
 
 ## Temporal Lag Analysis: Pingtung
 
@@ -530,10 +519,9 @@ Mean optimal lag (rolling): 3.5 weeks.
 *See Figures: Lag correlation heatmaps and line plots for EGG*
 
 
+
+
 ## Tainan
-
-
-### Statistical Analysis
 
 ## Statistical Correlation Analysis: Tainan
 
@@ -603,7 +591,6 @@ Of 175 features analyzed, 174 showed statistically significant correlations with
 *See Figure: Top 30 feature correlations with EGG (heatmap)*
 
 
-### PCA and Clustering
 
 ## PCA and Clustering Analysis: Tainan
 
@@ -643,7 +630,6 @@ Significant differences in EGG were observed across clusters. Dunn's post-hoc te
 *See Figures: PCA scree plot, t-SNE cluster visualization, and cluster boxplots for POS/EGG*
 
 
-### Temporal Lag Analysis
 
 ## Temporal Lag Analysis: Tainan
 
@@ -706,7 +692,6 @@ Mean optimal lag (rolling): 6.2 weeks.
 *See Figures: Lag correlation heatmaps and line plots for EGG*
 
 
-## Cross-City Comparison
 
 ## Cross-City Comparison
 

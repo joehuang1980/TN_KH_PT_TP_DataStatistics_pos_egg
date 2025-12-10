@@ -2,7 +2,7 @@
 
 ## Study Design and Data Collection
 
-This multi-city surveillance study analyzed ovitrap-based mosquito monitoring data from four cities in Taiwan: Taipei, Kaohsiung, Pingtung, and Tainan. Data included 175 environmental and demographic features and two outcome variables: ovitrap positive rate (POS) and average egg count (EGG).
+This study analyzed ovitrap surveillance data from four cities in Taiwan: Taipei, Kaohsiung, Pingtung, and Tainan. Data included 175 environmental and demographic features and two outcome variables: ovitrap positive rate (POS) and average egg count (EGG).
 
 
 ## Statistical Correlation Analysis
