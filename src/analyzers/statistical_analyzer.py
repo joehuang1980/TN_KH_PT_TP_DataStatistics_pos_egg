@@ -74,6 +74,9 @@ class StatisticalAnalyzer(CityAnalyzer):
             'feature_groups': {k: len(v) for k, v in feature_groups.items()}
         }
 
+        # Initialize corrected_alpha before loop
+        corrected_alpha = None
+
         # Analyze each target
         for target in config.TARGETS:
             if target not in df.columns:
@@ -111,10 +114,17 @@ class StatisticalAnalyzer(CityAnalyzer):
             results[f'{target}_top_positive'] = top_pos
             results[f'{target}_top_negative'] = top_neg
 
-            print(f"  ✓ Top positive correlation: {top_pos.iloc[0]['feature']} "
-                  f"(ρ = {top_pos.iloc[0]['correlation']:.3f})")
-            print(f"  ✓ Top negative correlation: {top_neg.iloc[0]['feature']} "
-                  f"(ρ = {top_neg.iloc[0]['correlation']:.3f})")
+            if not top_pos.empty:
+                print(f"  ✓ Top positive correlation: {top_pos.iloc[0]['feature']} "
+                      f"(ρ = {top_pos.iloc[0]['correlation']:.3f})")
+            else:
+                print(f"  ⚠ No positive correlations found")
+
+            if not top_neg.empty:
+                print(f"  ✓ Top negative correlation: {top_neg.iloc[0]['feature']} "
+                      f"(ρ = {top_neg.iloc[0]['correlation']:.3f})")
+            else:
+                print(f"  ⚠ No negative correlations found")
 
             # Group correlations by feature type
             grouped_corr = self._group_correlations_by_type(

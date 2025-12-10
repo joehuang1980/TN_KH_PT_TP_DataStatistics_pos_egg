@@ -1,13 +1,27 @@
 
 import pandas as pd
 import glob
+import os
 
-# Define file paths and city names from the read file
+# Define file paths and city names
+# Paths can be overridden using environment variables for portability
 file_paths = {
-    '高雄': '/home/joe/Documents/2024_semi_supervised_learning/Grid_Village/2019to2024allfeatures_labels_高雄_pos_egg.csv',
-    '屏東': '/home/joe/Documents/2024_semi_supervised_learning/Grid_Village/2019to2024allfeatures_labels_屏東_pos_egg.csv',
-    '台北': '/home/joe/Documents/2025_TPE_model/DATA/2020to2024allfeatures_labels_台北_pos_egg.csv',
-    '台南': '/home/joe/Documents/2023_semi_supervised_learning/Data/2019to2024allfeatures_labels_recent_pos_egg_data.csv'
+    '高雄': os.getenv(
+        'KAOHSIUNG_DATA_PATH',
+        '/home/joe/Documents/2024_semi_supervised_learning/Grid_Village/2019to2024allfeatures_labels_高雄_pos_egg.csv'
+    ),
+    '屏東': os.getenv(
+        'PINGTUNG_DATA_PATH',
+        '/home/joe/Documents/2024_semi_supervised_learning/Grid_Village/2019to2024allfeatures_labels_屏東_pos_egg.csv'
+    ),
+    '台北': os.getenv(
+        'TAIPEI_DATA_PATH',
+        '/home/joe/Documents/2025_TPE_model/DATA/2020to2024allfeatures_labels_台北_pos_egg.csv'
+    ),
+    '台南': os.getenv(
+        'TAINAN_DATA_PATH',
+        '/home/joe/Documents/2023_semi_supervised_learning/Data/2019to2024allfeatures_labels_recent_pos_egg_data.csv'
+    )
 }
 
 # List to hold dataframes

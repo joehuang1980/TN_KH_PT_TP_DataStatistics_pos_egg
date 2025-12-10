@@ -145,8 +145,13 @@ class LagRollingAnalyzer(CityAnalyzer):
             row = {'variable': variable}
 
             for week in config.LAG_RANGE:
-                # Find the feature for this week
-                matching_features = [f for f in lag_features if f'{week}' in f]
+                # Find the feature for this week with exact suffix matching
+                if lag_type == 'simple':
+                    suffix = f'_lag_{week}'
+                else:  # rolling
+                    suffix = f'_rolling{week}'
+
+                matching_features = [f for f in lag_features if f.endswith(suffix)]
 
                 if matching_features:
                     feature = matching_features[0]

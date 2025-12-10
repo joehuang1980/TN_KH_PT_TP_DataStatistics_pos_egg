@@ -83,8 +83,14 @@ class PCAClusteringAnalyzer(CityAnalyzer):
         # Step 1: Handle missing values and standardize features
         print("\nStep 1: Preparing data and standardizing features...")
 
-        # Remove rows with any NaN values in features
-        df_clean = df[features + config.TARGETS].dropna()
+        # Check which targets are available
+        available_targets = [t for t in config.TARGETS if t in df.columns]
+        if len(available_targets) < len(config.TARGETS):
+            missing_targets = [t for t in config.TARGETS if t not in df.columns]
+            print(f"  ⚠ Warning: Missing targets in data: {missing_targets}")
+
+        # Remove rows with any NaN values in features and available targets
+        df_clean = df[features + available_targets].dropna()
         print(f"  ✓ Removed {len(df) - len(df_clean):,} rows with missing values")
 
         # Update results with clean sample size

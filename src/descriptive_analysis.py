@@ -29,8 +29,15 @@ print("\n--- Overall Descriptive Statistics ---")
 # To avoid overwhelming output, describe() will be shown for key columns and a sample of features
 key_cols = ['pos', 'egg']
 # Sample a few feature columns to get an idea of the data
-feature_sample = list(np.random.choice(df.columns.drop(key_cols + ['縣市']), 5, replace=False))
-print(df[key_cols + feature_sample].describe())
+candidate_cols = df.columns.drop(key_cols + ['縣市'])
+sample_size = min(5, len(candidate_cols))
+
+if sample_size > 0:
+    feature_sample = list(np.random.choice(candidate_cols, sample_size, replace=False))
+    print(df[key_cols + feature_sample].describe())
+else:
+    print("No feature columns available to sample")
+    print(df[key_cols].describe())
 
 
 # --- Per-City Descriptive Statistics ---

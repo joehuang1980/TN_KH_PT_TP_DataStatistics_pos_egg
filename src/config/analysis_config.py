@@ -19,28 +19,40 @@ CITIES = {
         'name_zh': '台北',
         'name_en': 'Taipei',
         'abbr': 'TP',
-        'path': '/home/joe/Documents/2025_TPE_model/DATA/2020to2024allfeatures_labels_台北_pos_egg.csv',
+        'path': os.getenv(
+            'TAIPEI_DATA_PATH',
+            '/home/joe/Documents/2025_TPE_model/DATA/2020to2024allfeatures_labels_台北_pos_egg.csv'
+        ),
         'color': '#E74C3C'  # Red
     },
     'kaohsiung': {
         'name_zh': '高雄',
         'name_en': 'Kaohsiung',
         'abbr': 'KH',
-        'path': '/home/joe/Documents/2024_semi_supervised_learning/Grid_Village/2019to2024allfeatures_labels_高雄_pos_egg.csv',
+        'path': os.getenv(
+            'KAOHSIUNG_DATA_PATH',
+            '/home/joe/Documents/2024_semi_supervised_learning/Grid_Village/2019to2024allfeatures_labels_高雄_pos_egg.csv'
+        ),
         'color': '#3498DB'  # Blue
     },
     'pingtung': {
         'name_zh': '屏東',
         'name_en': 'Pingtung',
         'abbr': 'PT',
-        'path': '/home/joe/Documents/2024_semi_supervised_learning/Grid_Village/2019to2024allfeatures_labels_屏東_pos_egg.csv',
+        'path': os.getenv(
+            'PINGTUNG_DATA_PATH',
+            '/home/joe/Documents/2024_semi_supervised_learning/Grid_Village/2019to2024allfeatures_labels_屏東_pos_egg.csv'
+        ),
         'color': '#2ECC71'  # Green
     },
     'tainan': {
         'name_zh': '台南',
         'name_en': 'Tainan',
         'abbr': 'TN',
-        'path': '/home/joe/Documents/2023_semi_supervised_learning/Data/2019to2024allfeatures_labels_recent_pos_egg_data.csv',
+        'path': os.getenv(
+            'TAINAN_DATA_PATH',
+            '/home/joe/Documents/2023_semi_supervised_learning/Data/2019to2024allfeatures_labels_recent_pos_egg_data.csv'
+        ),
         'color': '#F39C12'  # Orange
     }
 }
